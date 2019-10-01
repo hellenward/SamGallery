@@ -1,0 +1,24 @@
+body {
+  background: 0 -100px repeat-x url(https://mdn.mozillademos.org/files/5415/bg_gallery.png) #4F191A;
+  margin: 10px;
+}
+
+img {
+  display: none;
+}
+
+table {
+  margin: 0 auto;
+}
+
+td {
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+  color: gold;
+  text-shadow: 2px 2px #ff0000;
+  font-size: 40px;
+  font-family: "Century Gothic"; 
+}
