@@ -15,12 +15,14 @@ function draw() {
       document.images[i].parentNode.insertBefore(canvas,document.images[i]);
 
       ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#0000000'; 
+      ctx.fillRect(0, 0, 132, 150);
 
       //draw image to canvas
       ctx.drawImage(document.images[i], 15, 20);
 
       //add frame
-      ctx.drawImage(document.getElementById('frame'), 0, 0); 
+      ctx.drawImage(document.getElementById('frame'), 0, 0);
     }
   }
 }
