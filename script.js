@@ -15,11 +15,15 @@ function draw() {
       document.images[i].parentNode.insertBefore(canvas,document.images[i]);
 
       ctx = canvas.getContext('2d');
-      ctx.fillStyle = '#0000000'; 
+
+      //black background
+      ctx.fillStyle = '#0000000';
       ctx.fillRect(0, 0, 132, 150);
 
       //draw image to canvas
-      ctx.drawImage(document.images[i], 15, 20);
+      var xOffset = document.images[i].width < canvas.width ? ((canvas.width - document.images[i].width) / 2) : 0;
+      var yOffset = document.images[i].height < canvas.height ? ((canvas.height - document.images[i].height) / 2) : 0;
+      ctx.drawImage(document.images[i], xOffset, yOffset);
 
       //add frame
       ctx.drawImage(document.getElementById('frame'), 0, 0);
