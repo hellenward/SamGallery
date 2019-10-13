@@ -66,10 +66,17 @@ function addImage(myImage) {
   ctx.webkitImageSmoothingEnabled = false;
   ctx.msImageSmoothingEnabled = false;
   ctx.imageSmoothingEnabled = false;
-  var xOffset = myImage.width < canvas.width ? ((canvas.width - myImage.width) / 2) : 0;
-  var yOffset = myImage.height < canvas.height ? ((canvas.height - myImage.height) / 2) : 0;
-  console.log(yOffset, xOffset, myImage);
-  ctx.drawImage(myImage, xOffset, yOffset);
+  var wrh = myImage.width/myImage.height;
+  var newWidth = canvas.width;
+  var newHeight = newWidth / wrh;
+  if (newHeight > canvas.height) {
+    newHeight = canvas.height;
+    newWidth = newHeight * wrh;
+  }
+  var xOffset = newWidth < canvas.width ? ((canvas.width - newWidth) / 2) : 0;
+  var yOffset = newHeight < canvas.height ? ((canvas.height - newHeight) / 2) : 0;
+  console.log(canvas.height, canvas.width);
+  ctx.drawImage(myImage, xOffset, yOffset, newWidth, newHeight);
 
   //add frame
   ctx.drawImage(document.getElementById('frame'), 0, 0);
