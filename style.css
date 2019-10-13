@@ -20,5 +20,9 @@ h1 {
   color: gold;
   text-shadow: 2px 2px #ff0000;
   font-size: 40px;
-  font-family: "Century Gothic"; 
+  font-family: "Century Gothic";
+}
+
+#file {
+  float: right;
 }
