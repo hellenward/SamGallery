@@ -67,15 +67,15 @@ function addImage(myImage) {
   ctx.msImageSmoothingEnabled = false;
   ctx.imageSmoothingEnabled = false;
   var wrh = myImage.width/myImage.height;
-  var newWidth = canvas.width;
+  var frameOffset = 20;
+  var newWidth = canvas.width - frameOffset;
   var newHeight = newWidth / wrh;
   if (newHeight > canvas.height) {
-    newHeight = canvas.height;
+    newHeight = canvas.height - frameOffset;
     newWidth = newHeight * wrh;
   }
   var xOffset = newWidth < canvas.width ? ((canvas.width - newWidth) / 2) : 0;
   var yOffset = newHeight < canvas.height ? ((canvas.height - newHeight) / 2) : 0;
-  console.log(canvas.height, canvas.width);
   ctx.drawImage(myImage, xOffset, yOffset, newWidth, newHeight);
 
   //add frame
