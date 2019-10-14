@@ -21,14 +21,14 @@ function drawPic(myImage) {
         ctx.imageSmoothingEnabled = false;
         var xOffset = myImage.width < canvas.width ? ((canvas.width - myImage.width) / 2) : 0;
         var yOffset = myImage.height < canvas.height ? ((canvas.height - myImage.height) / 2) : 0;
-        var wrh = myImage.width/100;
-        var newWidth = canvas.width;
-        var newHeight = newWidth / wrh;
-        if (newHeight > 100) {
-          newHeight = 100;
-          newWidth = newHeight * wrh;
-        }
-        ctx.drawImage(myImage, xOffset, yOffset, newWidth, newHeight);
+//        var wrh = myImage.width/100;
+//        var newWidth = canvas.width;
+//        var newHeight = newWidth / wrh;
+//        if (newHeight > 100) {
+//          newHeight = 100;
+//          newWidth = newHeight * wrh;
+//        }
+        ctx.drawImage(myImage, xOffset, yOffset);
 
         //add frame
         ctx.drawImage(document.getElementById('frame'), 0, 0);
