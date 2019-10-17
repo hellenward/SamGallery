@@ -1,12 +1,18 @@
+const images = ["./photos/Sam1.png", "./photos/Sam2.png", "./photos/Sam3.png",
+"./photos/Sam4.png","./photos/Sam5.png", "./photos/Sam6.png","./photos/Sam7.png",
+"./photos/Sam8.png", "./photos/Sam9.png", "./photos/Sam10.png", "./photos/Sam11.png",
+"./photos/Sam12.png", "./photos/Sam13.png", "./photos/Sam14.png", "./photos/Sam15.png",
+]
+
 function drawPic(myImage) {
 
         //Create canvas for all other images
         canvas = document.createElement('canvas');
         canvas.setAttribute('width', 132);
         canvas.setAttribute('height', 150);
-
         //insert before images
-        myImage.parentNode.insertBefore(canvas,myImage);
+        const canvasInsert = document.getElementById('canvasInsert');
+        canvasInsert.appendChild(canvas,myImage);
 
         ctx = canvas.getContext('2d');
 
@@ -21,20 +27,13 @@ function drawPic(myImage) {
         ctx.imageSmoothingEnabled = false;
         var xOffset = myImage.width < canvas.width ? ((canvas.width - myImage.width) / 2) : 0;
         var yOffset = myImage.height < canvas.height ? ((canvas.height - myImage.height) / 2) : 0;
-//        var wrh = myImage.width/100;
-//        var newWidth = canvas.width;
-//        var newHeight = newWidth / wrh;
-//        if (newHeight > 100) {
-//          newHeight = 100;
-//          newWidth = newHeight * wrh;
-//        }
         ctx.drawImage(myImage, xOffset, yOffset);
 
         //add frame
         ctx.drawImage(document.getElementById('frame'), 0, 0);
 }
 
-document.getElementById('file').onchange=function(event) {
+/* document.getElementById('file').onchange=function(event) {
   const reader = new FileReader();
   const file = event.target.files[0];
   var img = new Image();
@@ -81,14 +80,16 @@ function addImage(myImage) {
   //add frame
   ctx.drawImage(document.getElementById('frame'), 0, 0);
 }
+*/
 
 function draw() {
 
   //loop through all images
-  for (var i = 0; i < document.images.length; i++) {
-    //Don't add canvas for frame
-    if (document.images[i].getAttribute('id') != "frame") {
-      drawPic(document.images[i]);
-    }
-  }
+  var imgs = images.map(function(image) {
+    var img = new Image();
+    img.addEventListener('load', function() {
+      drawPic(img);
+    }, false);
+    img.src = image;
+  })
 }
