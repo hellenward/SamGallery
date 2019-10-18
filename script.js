@@ -33,6 +33,18 @@ function drawPic(myImage) {
         ctx.drawImage(document.getElementById('frame'), 0, 0);
 }
 
+function draw() {
+
+  //loop through all images
+  var imgs = images.map(function(image) {
+    var img = new Image();
+    img.addEventListener('load', function() {
+      drawPic(img);
+    }, false);
+    img.src = image;
+  })
+}
+
 /* document.getElementById('file').onchange=function(event) {
   const reader = new FileReader();
   const file = event.target.files[0];
@@ -81,15 +93,3 @@ function addImage(myImage) {
   ctx.drawImage(document.getElementById('frame'), 0, 0);
 }
 */
-
-function draw() {
-
-  //loop through all images
-  var imgs = images.map(function(image) {
-    var img = new Image();
-    img.addEventListener('load', function() {
-      drawPic(img);
-    }, false);
-    img.src = image;
-  })
-}

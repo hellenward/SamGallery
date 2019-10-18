@@ -7,14 +7,6 @@ img {
   display: none;
 }
 
-table {
-  margin: 0 auto;
-}
-
-td {
-  padding: 15px;
-}
-
 h1 {
   text-align: center;
   color: gold;
@@ -23,6 +15,20 @@ h1 {
   font-family: "Century Gothic";
 }
 
+canvas {
+  margin: 50px;
+}
+
+.canvasInsert {
+  display: grid;
+}
+
+.canvasParent {
+  text-align:center;
+}
+
 #file {
   float: right;
+  position: absolute;
+  right: 0px;
 }
