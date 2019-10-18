@@ -45,7 +45,7 @@ function draw() {
   })
 }
 
-/* document.getElementById('file').onchange=function(event) {
+document.getElementById('file').onchange=function(event) {
   const reader = new FileReader();
   const file = event.target.files[0];
   var img = new Image();
@@ -53,19 +53,20 @@ function draw() {
     img.src = reader.result;
   }
   img.addEventListener('load', function() {
-    addImage(img);
+    images.push(img.src);
+    console.log(img.src);
   }, false);
   reader.readAsDataURL(file);
 }
 
-function addImage(myImage) {
+/* function addImage(myImage) {
   //Create canvas for all other images
   canvas = document.createElement('canvas');
   canvas.setAttribute('width', 132);
   canvas.setAttribute('height', 150);
   ctx = canvas.getContext('2d');
 
-  var insertHere = document.getElementById('picAddition');
+  var insertHere = document.getElementById('canvasInsert');
   insertHere.appendChild(canvas);
 
   //black background
