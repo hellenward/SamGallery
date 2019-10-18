@@ -53,20 +53,19 @@ document.getElementById('file').onchange=function(event) {
     img.src = reader.result;
   }
   img.addEventListener('load', function() {
-    images.push(img.src);
-    console.log(img.src);
+    addImage(img);
   }, false);
   reader.readAsDataURL(file);
 }
 
-/* function addImage(myImage) {
+function addImage(myImage) {
   //Create canvas for all other images
   canvas = document.createElement('canvas');
   canvas.setAttribute('width', 132);
   canvas.setAttribute('height', 150);
   ctx = canvas.getContext('2d');
 
-  var insertHere = document.getElementById('canvasInsert');
+  var insertHere = document.getElementById('picAddition');
   insertHere.appendChild(canvas);
 
   //black background
@@ -93,4 +92,3 @@ document.getElementById('file').onchange=function(event) {
   //add frame
   ctx.drawImage(document.getElementById('frame'), 0, 0);
 }
-*/
